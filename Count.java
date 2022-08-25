@@ -1,9 +1,9 @@
 import java.util.Arrays;
-class Count_Over{
+class Count_Over{ // 중복이 있는 카운트
 	final int MAX;
 	final int COUNT;
 
-	Count_Over(int MAX, int COUNT){
+	Count_Over(int MAX, int COUNT){ //최대숫자와 자리값 입력
 		this.MAX=MAX;
 		this.COUNT=COUNT;
 	}
@@ -28,12 +28,12 @@ class Count_Over{
 	}
 }
 
-class Count_NoOver {
+class Count_NoOver { //중복없는 카운트
 	final int MAX;
 	final int COUNT;
 	boolean bl = true;
 
-	Count_NoOver(int MAX, int COUNT){
+	Count_NoOver(int MAX, int COUNT){ //최대숫자와 자리값 입력
 		this.MAX=MAX;
 		this.COUNT=COUNT;
 	}
@@ -45,7 +45,7 @@ class Count_NoOver {
 		return table;
 	}
 
-	int[] change(int[] table) {
+	int[] change(int[] table) { //중복이 안되도록 숫자 변경
 		for(int i=0; i<COUNT; i++) {
 			if(table[i]>MAX) {
 				try {
@@ -83,9 +83,11 @@ public class Count {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		/*Count_Over co = new Count_Over(6,4);
-		co.cal();*/
+		System.out.println("중복있는 카운트");
+		Count_Over co = new Count_Over(6,4);
+		co.cal();
 
+		System.out.println("\n중복없는 카운트");
 		Count_NoOver cn = new Count_NoOver(6,4);
 		cn.cal();
 	}
