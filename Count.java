@@ -8,12 +8,22 @@ class Count_Over{ // 중복이 있는 카운트
 		this.COUNT=COUNT;
 	}
 
+	void sort(int[] table){ // 좌우대칭 및 출력
+		int num;
+		int[] print = table.clone();
+		for(int i=0; i<(print.length)/2;i++){
+			num = print[i];
+			print[i]=print[print.length-(i+1)];
+			print[print.length-(i+1)]=num;
+		}
+		System.out.println(Arrays.toString(print));
+	}
 	void cal(){
 		int[] table = new int[COUNT];
 		boolean bl = true;
 
 		while(bl) {
-			System.out.println(Arrays.toString(table));
+			sort(table);
 			table[0]++; //1씩 증가
 			for(int i=0; i<COUNT; i++) {
 				if(table[i]>MAX) {
@@ -63,13 +73,22 @@ class Count_NoOver { //중복없는 카운트
 		}
 		return table;
 	}
-
+	void sort(int[] table){ // 좌우대칭 및 출력
+		int num;
+		int[] print = table.clone();
+		for(int i=0; i<(print.length)/2;i++){
+			num = print[i];
+			print[i]=print[print.length-(i+1)];
+			print[print.length-(i+1)]=num;
+		}
+		System.out.println(Arrays.toString(print));
+	}
 	void cal(){
 		int[] table = new int[COUNT];
 		table=set(table);
 
 		while(bl){
-			System.out.println(Arrays.toString(table));
+			sort(table);
 			table[0]++; //1씩 증가
 			table=change(table);
 			while(table[0]>MAX){
@@ -88,7 +107,7 @@ public class Count {
 		co.cal();
 
 		System.out.println("\n중복없는 카운트");
-		Count_NoOver cn = new Count_NoOver(6,4);
+		Count_NoOver cn = new Count_NoOver(6,5);
 		cn.cal();
 	}
 }
